@@ -1,0 +1,35 @@
+import { Meta, Story } from '@storybook/addon-docs';
+
+import Card from './Card';
+
+<Meta title="Components/Card" component={Card} />
+
+# Card component
+
+## Document me
+
+export const Template = (args) => <Card {...args} />;
+
+<Story
+  name="Card active"
+  args={{
+    color: '#49B8B0',
+    text: 'Lorem ipsum',
+    title: 'Harry Potter und die Kammer des Schreckens',
+    isActive: true,
+  }}
+>
+  {Template.bind({})}
+</Story>
+
+<Story
+  name="Card inactive"
+  args={{
+    color: '#49C8B0',
+    text: 'Lorem ipsum',
+    title: 'Harry Potter und der Stein der Weisen',
+    isActive: false,
+  }}
+>
+  {Template.bind({})}
+</Story>
