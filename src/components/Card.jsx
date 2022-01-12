@@ -13,7 +13,10 @@ export default function Card({
     <CardSection backgroundColor={color} isActive={isActive}>
       <Title textColor={color}>{title}</Title>
       <p>{text}</p>
-      <small>{author ? author : 'Anonymous'}</small>
+      <FlexContainer>
+        <small>{author ? author : 'Anonymous'}</small>
+        {isActive && <button>Borrow</button>}
+      </FlexContainer>
     </CardSection>
   );
 }
@@ -24,6 +27,7 @@ Card.propTypes = {
   author: PropTypes.string,
   color: PropTypes.string,
   isActive: PropTypes.bool,
+  // got anything new for me?
 };
 
 const CardSection = styled.section`
@@ -37,6 +41,18 @@ const CardSection = styled.section`
       : 'none'};
   border-radius: 6px;
   opacity: ${(props) => (props.isActive ? 1 : 0.5)};
+`;
+
+const FlexContainer = styled.div`
+  display: flex;
+
+  small {
+    flex: 3;
+  }
+
+  button {
+    flex: 1;
+  }
 `;
 
 const Title = styled.h2`
