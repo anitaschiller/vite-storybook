@@ -10,11 +10,11 @@ export default function Card({
   isActive = true,
 }) {
   return (
-    <Wrapper backgroundColor={color} isActive={isActive}>
+    <CardSection backgroundColor={color} isActive={isActive}>
       <Title textColor={color}>{title}</Title>
       <p>{text}</p>
       <small>{author ? author : 'Anonymous'}</small>
-    </Wrapper>
+    </CardSection>
   );
 }
 
@@ -26,7 +26,8 @@ Card.propTypes = {
   isActive: PropTypes.bool,
 };
 
-const Wrapper = styled.section`
+const CardSection = styled.section`
+  font-family: sans-serif;
   padding: 1rem;
   background: ${(props) =>
     props.backgroundColor ? props.backgroundColor : 'none'};
