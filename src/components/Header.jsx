@@ -4,9 +4,10 @@ export default function Header({
   title,
   firstColor = '#eee',
   secondColor = '#333',
+  isStatic = false,
 }) {
   return (
-    <AppHeader>
+    <AppHeader isStatic={isStatic}>
       <Headline firstColor={firstColor} secondColor={secondColor}>
         {title}
       </Headline>
@@ -15,10 +16,10 @@ export default function Header({
 }
 
 const AppHeader = styled.header`
-  position: fixed;
+  position: ${(props) => (props.isStatic ? 'static' : 'fixed')};
   top: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
+  height: 8rem;
   background: hotpink;
 `;
 const gradient = (firstColor, secondColor) =>
@@ -29,4 +30,5 @@ const Headline = styled.h1`
   background: ${(props) => gradient(props.firstColor, props.secondColor)};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin-top: 0;
 `;
