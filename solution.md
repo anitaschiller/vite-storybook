@@ -50,7 +50,7 @@ In Card.jsx:
     title: 'Make it shine',
     firstColor: '#eee',
     secondColor: '#d41313',
-    isStatic: false,
+    isStatic: true,
   }}
 >
   {(args) => <Header {...args} />}
